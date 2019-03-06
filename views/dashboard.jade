@@ -1,0 +1,30 @@
+extends layout
+
+block content
+    .container-fuild
+        .row
+            div.col-md-4
+                h1 Welcome to Phonebook
+                p(class="lead") Welcome 
+            .col-md-6
+            .col-md-2
+                a(href="/users/logout" class="btn btn-secondary align-right") Logout
+
+    div(class='container')
+    div.col-md-4
+      form(action="/save-contact", method='post')
+        div.form-grp.mt-5
+          label(for="email") Name :
+          input(type="text" class='form-control' name='name')
+        div.form-grp.mt-5
+          label(for="number") Number :
+          input(type="text" class='form-control' name="number")
+
+        button(type="submit" class="btn btn-primary mt-2") Submit
+    ul
+    if contacts
+        li Name:  #{contacts.name} 
+        li Number: #{contacts.number}
+    
+    script
+      |   console.log(#{ensureAuthenticated});

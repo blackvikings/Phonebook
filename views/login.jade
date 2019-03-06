@@ -1,0 +1,23 @@
+extends layout
+
+block content
+  center
+    h1 Welcome to Phonebook
+
+  div.container
+    div.col-md-6.offset-md-3
+        div.card.mt-5
+            div.card-body
+                h5.card-title Login
+                if(message)
+                    div.alert.alert-danger.alert-dismissible.fade.show #{message}
+                div.col-md-12
+                    form(action="/users/login", method="post")
+                        .form-grp
+                            label(for="email") Email:
+                            input(type="text" class="form-control" name="email")
+                        .form-grp
+                            label(for="password") Password:
+                            input(type="password" class="form-control" name="password")
+                        button(type='submit' class='btn btn-primary mt-2') Submit
+

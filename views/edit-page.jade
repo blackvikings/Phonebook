@@ -1,0 +1,21 @@
+extends layout
+
+block content
+  center
+    h1 Welcome to Phonebook
+
+  
+  div(class='container')
+    div.col-md-4
+      form(action="/update-contact/#{contacts._id}", method='post')
+        div.form-grp.mt-5
+          label(for="email") Name :
+          input(type="text" class='form-control' name='name' value='#{contacts.name}' )
+        div.form-grp.mt-5
+          label(for="number") Number :
+          input(type="text" class='form-control' name="number" value='#{contacts.number}')
+
+        button(type="submit" class="btn btn-primary mt-2") Submit
+    
+
+  

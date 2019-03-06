@@ -1,0 +1,21 @@
+extends layout
+
+block content
+  center
+    h1 Welcome to Phonebook
+
+  table.table.table-bordered.mt-5
+    thead
+       tr
+        th Name
+        th Number
+        th Action
+    tbody
+    if cont
+        each contacts in cont
+            tr
+              td Name:  #{contacts.name} 
+              td Number: #{contacts.number}  
+              td 
+                a(href="/edit-page/#{contacts._id}", class="btn btn-primary") Edit
+                a(href="/delete-contact/#{contacts._id}", class="btn btn-primary ml-2") Delete
