@@ -2,17 +2,22 @@ const joi = require('joi');
 const bcryptjs = require('bcryptjs');
 const passport = require('passport');
 
+
 const Contact = require('../model/PhonebookModel.js');
 const User = require('../model/User.js');
+const upload = require("../multer/storage");
 
-// const { ensureAuthenticated } = require('../config/auth');
 
 module.exports.postdata = function(req, res) {
 
   var contact = new Contact();
+  upload(req, res, function (err) {
+    contact.image = req.body.image;
+  });
+
     contact.name = req.body.name ? req.body.name : contact.name;
     contact.number = req.body.number;
-    
+   
     contact.save(function (err, contact){
       if(err){
         console.log(err);

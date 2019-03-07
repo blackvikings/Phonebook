@@ -12,13 +12,16 @@ block content
 
     div(class='container')
     div.col-md-4
-      form(action="/save-contact", method='post')
+      form(action="/save-contact", enctype="multipart/form-data", method='post')
         div.form-grp.mt-5
           label(for="email") Name :
           input(type="text" class='form-control' name='name')
-        div.form-grp.mt-5
+        div.form-grp
           label(for="number") Number :
           input(type="text" class='form-control' name="number")
+        div.form-grp
+          label(for="image") Image:
+          input(type="file", name='image')
 
         button(type="submit" class="btn btn-primary mt-2") Submit
     ul
